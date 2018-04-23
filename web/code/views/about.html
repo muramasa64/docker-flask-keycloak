@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}:: About Flask{% endblock %}
+{% block head %}
+  {{ super() }}
+  <style type="text/css">
+    .important { color: #336699; }
+  </style>
+{% endblock %}
+{% block content %}
+  <h1>About Flask</h1>
+
+  <p>About the World of Flask on Docker! </p>
+  <small>
+    {{ datetime }} <br />
+    @ {{ container }} <br />
+    Hosted on: {{ hosted }} <br />
+  </small>
+{% endblock %}
