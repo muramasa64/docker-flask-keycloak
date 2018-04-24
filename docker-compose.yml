@@ -8,3 +8,13 @@ services:
       - ./web/code:/var/www/html
   redis:
     image: "redis:alpine"
+  postgresql:
+    image: "postgres:10"
+    ports:
+      - "5432:5432"
+    env_file: ./postgres.env
+    environment:
+      - POSTGRES_DB=keycloak
+      - POSTGRES_USER=keycloak
+    volumes:
+      - ./postgres-volume:/var/lib/postgresql
