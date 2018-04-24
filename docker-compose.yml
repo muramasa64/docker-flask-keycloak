@@ -18,3 +18,16 @@ services:
       - POSTGRES_USER=keycloak
     volumes:
       - ./postgres-volume:/var/lib/postgresql
+  keycloak:
+    image: "jboss/keycloak:latest"
+    ports:
+      - "8888:8080"
+      - "8443:8443"
+    env_file:
+      - ./keycloak.env
+    environment:
+      - DB_VENDOR=postgres
+      - KEYCLOAK_USER=admin
+      - POSTGRES_ADDR=postgresql
+      - POSTGRES_DATABASE=keycloak
+      - POSTGRES_USER=keycloak
